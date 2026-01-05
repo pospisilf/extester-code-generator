@@ -1,0 +1,52 @@
+name: ExTester Code Generator Main CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        version: [max]
+        nodejs: ["20.x"]
+        type: [stable]
+      fail-fast: false
+
+    env:
+      CODE_VERSION: ${{ matrix.version }}
+      CODE_TYPE: ${{ matrix.type }}
+
+    steps:
+      - name: 👷🏻 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.nodejs }}
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Allow unprivileged user namespace (ubuntu)
+        if: ${{ startsWith(matrix.os, 'ubuntu') }}
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+
+      - name: Run Unit Tests (macOS, windows)
+        if: ${{ ! startsWith(matrix.os, 'ubuntu') }}
+        run: npm test
+
+      - name: Run Unit Tests (linux)
+        if: ${{ startsWith(matrix.os, 'ubuntu') }}
+        run: xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' npm test
