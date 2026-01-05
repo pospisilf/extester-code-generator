@@ -62,10 +62,7 @@ export async function askChatGPT(logger: Logger, prompt: string): Promise<string
 		// Send request to OpenAI API using the gpt-5 chat-completions model
 		const completion = await openai.chat.completions.create({
 			model: 'gpt-5',
-			// reasoning_effort: "medium",
 			messages: [{ role: 'user', content: prompt }],
-			// max_tokens: 4096, // Limit response length to 150 tokens
-			// max_completion_tokens: 4096,
 		});
 
 		// Log token usage information
