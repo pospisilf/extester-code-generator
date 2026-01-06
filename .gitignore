@@ -1,0 +1,25 @@
+# Dependencies
+node_modules
+
+# Build outputs
+dist/
+out/
+
+# VS Code extension packaging
+*.vsix
+
+# VS Code test runner
+.vscode-test/
+
+# logs
+npm-debug.log
+pnpm-debug.log*
+*.log
+
+# Environment variables
+.env 
+.env*
+
+# Editor 
+.vscode/
+.DS_Store
