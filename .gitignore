@@ -3,14 +3,23 @@ node_modules
 
 # Build outputs
 dist/
-build/
+out/
+
+# VS Code extension packaging
+*.vsix
+
+# VS Code test runner
+.vscode-test/
+
+# logs
+npm-debug.log
+pnpm-debug.log*
+*.log
 
 # Environment variables
 .env 
 .env*
 
-# logs
-npm-debug.log
-
 # Editor 
 .vscode/
+.DS_Store
