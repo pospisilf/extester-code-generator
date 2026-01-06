@@ -76,29 +76,22 @@ export async function getRelevantParts(packageJson: string, logger: Logger): Pro
 
 		// Get Extension ID
 		const extensionId = `${parsedJson.publisher}.${parsedJson.name}`;
-		// logger.info(`Extension ID: ${extensionId}`);
 
 		// Get Activation Events
 		const activationEvents = parsedJson.activationEvents || [];
-		// logger.info(`Activation Events: ${JSON.stringify(activationEvents, null, 2)}`);
 
 		// Get Commands
 		const commands = parsedJson.contributes?.commands || [];
-		// logger.info(`Commands: ${JSON.stringify(commands, null, 2)}`);
 
 		// Get Menus & Context Menus
 		const menus = parsedJson.contributes?.menus || {};
 		const submenus = parsedJson.contributes?.submenus || {};
-		// logger.info(`Menus: ${JSON.stringify(menus, null, 2)}`);
-		// logger.info(`Submenus: ${JSON.stringify(submenus, null, 2)}`);
 
 		// Get Welcome View
 		const viewsWelcome = parsedJson.contributes?.viewsWelcome || [];
-		// logger.info(`Views Welcome: ${JSON.stringify(viewsWelcome, null, 2)}`);
 
 		// Get Configuration Settings
 		const configProperties = parsedJson.contributes?.configuration?.properties || {};
-		// logger.info(`Configuration Properties: ${JSON.stringify(configProperties, null, 2)}`);
 
 		// Create an array of manifest data for analysis
 		manifestData = {
