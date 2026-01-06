@@ -260,7 +260,16 @@ export async function discoverAllTestFiles(logger: Logger): Promise<string[]> {
 
 	// Common test file patterns
 	const testPatterns = [
+		// "**/*.test.ts",
+		// "**/*.test.js",
+		// "**/*.spec.ts",
+		// "**/*.spec.js",
+		// "**/test/**/*.ts",
+		// "**/test/**/*.js",
+		// "**/tests/**/*.ts",
+		// "**/tests/**/*.js",
 		'**/ui-test/**/*.ts',
+		// "**/ui-test/**/*.js"
 	];
 
 	const allTestFiles: string[] = [];
