@@ -47,6 +47,10 @@ It analyzes your extension’s `package.json`, asks OpenAI models for suitable U
 
 The extension is designed to sit on top of an existing ExTester setup: you keep control of your test runner and project structure, while the generator handles the repetitive work of drafting and repairing tests.
 
+> **Tip:** Try the example project for a quick, known-good setup.  
+> Example: [extester-code-generator-example](https://github.com/pospisilf/extester-code-generator-example)  
+> It includes a minimal VS Code extension with ExTester configuration and README guidance on the test command to use, so you can install this generator and run through the full workflow quickly.
+
 ## Features
 
 At a high level, the extension provides a three-step workflow:
