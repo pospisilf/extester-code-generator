@@ -24,8 +24,8 @@
   <a href="#requirements">Requirements</a> •
   <a href="#configuration">Configuration </a> •
   <a href="#usage">Usage</a> •
-  <a href="#notes-and-limitations">Notes and limitations</a>
-  <a href="#contact">Contact</a>
+  <a href="#notes-and-limitations">Notes and limitations</a> •
+  <a href="#contact">Contact</a> •
   <a href="#issues">Issues</a>
 </p>
 
