@@ -33,11 +33,9 @@
   Generate and automatically fix UI tests for VS Code extensions using AI and the <a href="https://github.com/redhat-developer/vscode-extension-tester">ExTester</a> framework.
 </p>
 
----
-
-PLACEHOLDER FOR GIF
-
----
+<p align="center">
+  <img src="./docs/images/workflow.gif">
+</p>
 
 ## What is this
 
