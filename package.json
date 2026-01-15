@@ -106,6 +106,6 @@
   },
   "dependencies": {
     "glob": "^13.0.0",
-    "openai": "^4.97.0"
+    "openai": "^6.16.0"
   }
 }
