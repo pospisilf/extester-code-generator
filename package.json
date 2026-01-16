@@ -1,6 +1,7 @@
 {
   "name": "extester-code-generator",
   "displayName": "ExTester Code Generator",
+  "icon": "resources/logo_512.png",
   "description": "Generate UI tests for VS Code extensions using AI and ExTester framework.",
   "preview": true,
   "version": "0.0.1",
