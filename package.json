@@ -3,7 +3,7 @@
   "displayName": "ExTester Test Generator",
   "description": "Generate UI tests for VS Code extensions using AI and ExTester framework.",
   "preview": true,
-  "version": "0.1.0",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/pospisilf/extester-code-generator.git"
