@@ -1,0 +1,16 @@
+.vscode/**
+.vscode-test/**
+.git/**
+.github/**
+.gitignore
+node_modules/**
+src/**
+docs/**
+out/**
+extester-code-generator-*.vsix
+esbuild.js
+eslint.config.mjs
+tsconfig.json
+package-lock.json
+.vscode-test.mjs
+dist/**/*.map
