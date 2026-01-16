@@ -63,7 +63,7 @@ export class GeneratorViewProvider implements vscode.TreeDataProvider<vscode.Tre
 		// Create a tree item for generating test proposals
 		const testProposalItem = new vscode.TreeItem('Generate Test Proposals', vscode.TreeItemCollapsibleState.None);
 		testProposalItem.command = {
-			command: 'extester-test-generator.generateTestProposals',
+			command: 'extester-code-generator.generateTestProposals',
 			title: 'Generate Test Proposals',
 		};
 		testProposalItem.iconPath = new vscode.ThemeIcon('beaker');
@@ -72,7 +72,7 @@ export class GeneratorViewProvider implements vscode.TreeDataProvider<vscode.Tre
 		// Create a tree item for fixing compilation issues
 		const fixCompilationItem = new vscode.TreeItem('Fix Compilation Issues', vscode.TreeItemCollapsibleState.None);
 		fixCompilationItem.command = {
-			command: 'extester-test-generator.fixCompilationIssues',
+			command: 'extester-code-generator.fixCompilationIssues',
 			title: 'Fix Compilation Issues',
 		};
 		fixCompilationItem.iconPath = new vscode.ThemeIcon('tools');
@@ -80,7 +80,7 @@ export class GeneratorViewProvider implements vscode.TreeDataProvider<vscode.Tre
 		// Create a tree item for fixing runtime failures
 		const fixRuntimeItem = new vscode.TreeItem('Fix Runtime Failures', vscode.TreeItemCollapsibleState.None);
 		fixRuntimeItem.command = {
-			command: 'extester-test-generator.fixRuntimeFailures',
+			command: 'extester-code-generator.fixRuntimeFailures',
 			title: 'Fix Runtime Failures',
 		};
 		fixRuntimeItem.iconPath = new vscode.ThemeIcon('debug-console');

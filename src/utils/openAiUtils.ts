@@ -36,7 +36,7 @@ export function __setOpenAIClassForTests(replacement?: typeof OpenAI) {
  * @returns {string | undefined} The API key string if configured; otherwise undefined.
  */
 export function getApiKey(): string | undefined {
-	return vscode.workspace.getConfiguration('extester-test-generator').get<string>('apiKey');
+	return vscode.workspace.getConfiguration('extester-code-generator').get<string>('apiKey');
 }
 
 /**
@@ -51,7 +51,7 @@ export async function askChatGPT(logger: Logger, prompt: string): Promise<string
 	// Check if API key is configured in settings
 	const apiKey = getApiKey();
 	if (!apiKey) {
-		vscode.window.showErrorMessage('OpenAI API key missing. Set extester-test-generator.apiKey in settings and try again.');
+		vscode.window.showErrorMessage('OpenAI API key missing. Set extester-code-generator.apiKey in settings and try again.');
 		return '';
 	}
 
@@ -95,7 +95,7 @@ export async function askCodex(logger: Logger, prompt: string): Promise<string> 
 	// Check if API key is configured in settings
 	const apiKey = getApiKey();
 	if (!apiKey) {
-		vscode.window.showErrorMessage('OpenAI API key missing. Set extester-test-generator.apiKey in settings and try again.');
+		vscode.window.showErrorMessage('OpenAI API key missing. Set extester-code-generator.apiKey in settings and try again.');
 		return '';
 	}
 

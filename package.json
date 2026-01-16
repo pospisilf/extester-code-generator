@@ -1,6 +1,6 @@
 {
-  "name": "extester-test-generator",
-  "displayName": "ExTester Test Generator",
+  "name": "extester-code-generator",
+  "displayName": "ExTester Code Generator",
   "description": "Generate UI tests for VS Code extensions using AI and ExTester framework.",
   "preview": true,
   "version": "0.0.1",
@@ -20,14 +20,14 @@
   "main": "./dist/extension.js",
   "contributes": {
     "configuration": {
-      "title": "ExTester Test Generator",
+      "title": "ExTester Code Generator",
       "properties": {
-        "extester-test-generator.apiKey": {
+        "extester-code-generator.apiKey": {
           "type": "string",
           "default": "",
           "markdownDescription": "Your OpenAI API Key."
         },
-        "extester-test-generator.maxGeneratedTests": {
+        "extester-code-generator.maxGeneratedTests": {
           "type": [
             "number",
             "null"
@@ -39,33 +39,33 @@
     },
     "commands": [
       {
-        "command": "extester-test-generator.generateTestProposals",
+        "command": "extester-code-generator.generateTestProposals",
         "title": "Generate Test Proposals"
       },
       {
-        "command": "extester-test-generator.fixCompilationIssues",
+        "command": "extester-code-generator.fixCompilationIssues",
         "title": "Fix Compilation Issues"
       },
       {
-        "command": "extester-test-generator.fixRuntimeFailures",
+        "command": "extester-code-generator.fixRuntimeFailures",
         "title": "Fix Runtime Failures"
       },
       {
-        "command": "extester-test-generator.runAndFixTests",
+        "command": "extester-code-generator.runAndFixTests",
         "title": "Run and Fix Tests"
       }
     ],
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "extester-test-generator-view",
-          "title": "ExTester Test Generator view",
+          "id": "extester-code-generator-view",
+          "title": "ExTester Code Generator view",
           "icon": "resources/logo_512.png"
         }
       ]
     },
     "views": {
-      "extester-test-generator-view": [
+      "extester-code-generator-view": [
         {
           "id": "generator-view",
           "name": "Generator View",

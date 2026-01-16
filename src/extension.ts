@@ -258,10 +258,10 @@ async function fixTestFailure(
  */
 export async function activate(context: vscode.ExtensionContext) {
 	// Create output channel for logger
-	const outputChannel = vscode.window.createOutputChannel('ExTester Test Generator');
+	const outputChannel = vscode.window.createOutputChannel('ExTester Code Generator');
 	logger = createLogger(outputChannel);
 	const extensionLog = logger.withScope('Extension');
-	extensionLog.debug('Activating ExTester Test Generator extension');
+	extensionLog.debug('Activating ExTester Code Generator extension');
 
 	const provider = new GeneratorViewProvider(logger);
 	vscode.window.registerTreeDataProvider('generator-view', provider);
@@ -270,7 +270,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	// Step 1: Generate Test
 	// Register command for generating test proposals
 	context.subscriptions.push(
-		vscode.commands.registerCommand('extester-test-generator.generateTestProposals', async () => {
+		vscode.commands.registerCommand('extester-code-generator.generateTestProposals', async () => {
 			const commandLog = extensionLog.withScope('GenerateTestProposals');
 			commandLog.info('Command invoked');
 
@@ -322,7 +322,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 									updateProgress(55, 'Preparing UI test directory');
 
-									const config = vscode.workspace.getConfiguration('extester-test-generator');
+									const config = vscode.workspace.getConfiguration('extester-code-generator');
 									const rawLimit = config.get<number | null>('maxGeneratedTests');
 									const normalizedLimit =
 										typeof rawLimit === 'number' && Number.isFinite(rawLimit) && rawLimit > 0 ? Math.floor(rawLimit) : undefined;
@@ -392,7 +392,7 @@ export async function activate(context: vscode.ExtensionContext) {
 								commandLog.error(`Raw response: ${response}`);
 								updateProgress(100, 'Generation aborted');
 								vscode.window.showErrorMessage(
-									'Unable to parse the AI response for test generation. Open the ExTester Test Generator output channel for the raw data.',
+									'Unable to parse the AI response for test generation. Open the ExTester Code Generator output channel for the raw data.',
 								);
 							}
 						} else {
@@ -403,7 +403,7 @@ export async function activate(context: vscode.ExtensionContext) {
 						commandLog.error(`Error generating test proposals: ${error}`);
 						updateProgress(100, 'Generation failed');
 						vscode.window.showErrorMessage(
-							'Failed to generate test proposals. See the ExTester Test Generator output channel for diagnostic details.',
+							'Failed to generate test proposals. See the ExTester Code Generator output channel for diagnostic details.',
 						);
 					}
 				},
@@ -414,7 +414,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	// Step 2: Fix Compilation Issus (syntatics)
 	// Command 2: Fix Compilation Issues
 	context.subscriptions.push(
-		vscode.commands.registerCommand('extester-test-generator.fixCompilationIssues', async () => {
+		vscode.commands.registerCommand('extester-code-generator.fixCompilationIssues', async () => {
 			const commandLog = extensionLog.withScope('FixCompilationIssues');
 			commandLog.info('Command invoked');
 
@@ -505,7 +505,7 @@ export async function activate(context: vscode.ExtensionContext) {
 						commandLog.warning('Failed to parse failures even though tests failed');
 						updateProgress(100, 'Compilation fix aborted');
 						vscode.window.showErrorMessage(
-							'Tests failed, but the output could not be parsed. Review the ExTester Test Generator output channel for details.',
+							'Tests failed, but the output could not be parsed. Review the ExTester Code Generator output channel for details.',
 						);
 						return;
 					}
@@ -665,7 +665,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 	// In extension.ts - updated fixRuntimeFailures command
 	context.subscriptions.push(
-		vscode.commands.registerCommand('extester-test-generator.fixRuntimeFailures', async () => {
+		vscode.commands.registerCommand('extester-code-generator.fixRuntimeFailures', async () => {
 			const commandLog = extensionLog.withScope('FixRuntimeFailures');
 			commandLog.info('Command invoked');
 
@@ -829,13 +829,13 @@ export async function activate(context: vscode.ExtensionContext) {
 	);
 
 	context.subscriptions.push(
-		vscode.commands.registerCommand('extester-test-generator.runAndFixTests', async () => {
+		vscode.commands.registerCommand('extester-code-generator.runAndFixTests', async () => {
 			const commandLog = extensionLog.withScope('RunAndFixTests');
 			commandLog.info('Command invoked');
 
 			try {
 				commandLog.info('Starting compilation fix phase');
-				await vscode.commands.executeCommand('extester-test-generator.fixCompilationIssues');
+				await vscode.commands.executeCommand('extester-code-generator.fixCompilationIssues');
 			} catch (error) {
 				commandLog.error(`Error during FixCompilationIssues phase: ${error}`);
 				return;
@@ -843,7 +843,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 			try {
 				commandLog.info('Starting runtime fix phase');
-				await vscode.commands.executeCommand('extester-test-generator.fixRuntimeFailures');
+				await vscode.commands.executeCommand('extester-code-generator.fixRuntimeFailures');
 			} catch (error) {
 				commandLog.error(`Error during FixRuntimeFailures phase: ${error}`);
 			}

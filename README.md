@@ -5,7 +5,7 @@
 </h1>
 
 <p align="center">
-  <a href="https://github.com/pospisilf/extester-code-generator"><img src="https://img.shields.io/github/package-json/v/pospisilf/extester-code-generator?label=extester-test-generator&color=orange&style=for-the-badge&logo=github" alt="ExTester Test Generator version"/></a>
+  <a href="https://github.com/pospisilf/extester-code-generator"><img src="https://img.shields.io/github/package-json/v/pospisilf/extester-code-generator?label=extester-code-generator&color=orange&style=for-the-badge&logo=github" alt="ExTester Code Generator version"/></a>
   <img src="https://img.shields.io/badge/status-proof%20of%20concept-yellow?style=for-the-badge" alt="Proof of Concept"/>
   <a href="https://github.com/pospisilf/extester-code-generator/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-Apache%202-blue.svg?style=for-the-badge&logo=apache" alt="License"/></a>
   <a href="https://github.com/pospisilf/extester-code-generator/actions/workflows/main.yaml"><img src="https://img.shields.io/github/actions/workflow/status/pospisilf/extester-code-generator/main.yaml?label=Main%20CI&style=for-the-badge&logo=githubactions&logoColor=white" alt="Main CI"></a>
@@ -39,7 +39,7 @@
 
 ## What is this
 
-ExTester Test Generator is a Visual Studio Code extension that helps you bootstrap and maintain UI test suites for your own VS Code extensions.
+ExTester Code Generator is a Visual Studio Code extension that helps you bootstrap and maintain UI test suites for your own VS Code extensions.
 
 It analyzes your extension’s `package.json`, asks OpenAI models for suitable UI test scenarios, generates ExTester-based TypeScript test files, and then helps you iteratively fix compilation and runtime failures using AI.
 
@@ -93,7 +93,7 @@ The extension focuses on UI tests built on top of ExTester (`vscode-extension-te
 
 ## Requirements
 
-To use ExTester Test Generator effectively, you need:
+To use ExTester Code Generator effectively, you need:
 
 - **Visual Studio Code** `^1.99.0` or newer.
 - **An existing VS Code extension workspace**, with:
@@ -114,20 +114,20 @@ Without a valid OpenAI API key, commands that rely on AI will show a clear error
 
 ## Configuration
 
-All extension-specific settings live under the `extester-test-generator` namespace in VS Code settings (`Settings` UI or `settings.json`).
+All extension-specific settings live under the `extester-code-generator` namespace in VS Code settings (`Settings` UI or `settings.json`).
 
 ### OpenAI API key
 
-- **Setting:** `extester-test-generator.apiKey`
+- **Setting:** `extester-code-generator.apiKey`
 - **Type:** string
 - **Purpose:** Your OpenAI API key used for all calls to the OpenAI API.
 
 You must set this before running. If this value is missing, the extension will show:  
-`OpenAI API key missing. Set extester-test-generator.apiKey in settings and try again.`
+`OpenAI API key missing. Set extester-code-generator.apiKey in settings and try again.`
 
 ### Limiting generated tests
 
-- **Setting:** `extester-test-generator.maxGeneratedTests`
+- **Setting:** `extester-code-generator.maxGeneratedTests`
 - **Type:** number or `null`
 - **Default:** `null` (no limit)
 - **Purpose:** Optional upper bound on how many proposals are turned into test files in a single run.
@@ -163,7 +163,7 @@ Those settings are owned by the ExTester runner; this generator simply uses them
 
 ### 1. Install and open your target extension project
 
-1. Install **ExTester Test Generator** in VS Code.
+1. Install **ExTester Code Generator** in VS Code.
 2. Open the folder containing your VS Code extension (with `package.json` at the root).
 3. Ensure your UI test script (`ui-test`) runs successfully (even if tests are currently failing).
 4. Configure ExTester (and its runner) as usual so `npm run ui-test` triggers your UI tests.
@@ -171,20 +171,20 @@ Those settings are owned by the ExTester runner; this generator simply uses them
 ### 2. Configure OpenAI access
 
 1. Open VS Code **Settings**.
-2. Search for `ExTester Test Generator`.
-3. Set **OpenAI API Key** (`extester-test-generator.apiKey`) to your API key.
-4. Optionally set **Max Generated Tests** (`extester-test-generator.maxGeneratedTests`) to limit how many tests are created in one batch.
+2. Search for `ExTester Code Generator`.
+3. Set **OpenAI API Key** (`extester-code-generator.apiKey`) to your API key.
+4. Optionally set **Max Generated Tests** (`extester-code-generator.maxGeneratedTests`) to limit how many tests are created in one batch.
 
 ### 3. Generate test proposals and files
 
 You can use either the Activity Bar view or the Command Palette:
 
 - **Generator View (recommended):**
-  - Open the **ExTester Test Generator** view from the Activity Bar.
+  - Open the **ExTester Code Generator** view from the Activity Bar.
   - Click **Generate Test Proposals**.
 
 - **Command Palette:**
-  - Run `ExTester Test Generator: Generate Test Proposals`.
+  - Run `ExTester Code Generator: Generate Test Proposals`.
 
 The extension will:
 
@@ -198,7 +198,7 @@ The extension will:
 If your tests fail to compile:
 
 - Use the **Generator View** and click **Fix Compilation Issues**, or
-- Run `ExTester Test Generator: Fix Compilation Issues` from the Command Palette.
+- Run `ExTester Code Generator: Fix Compilation Issues` from the Command Palette.
 
 The extension will:
 
@@ -212,7 +212,7 @@ The extension will:
 Once compilation errors are resolved but tests still fail at runtime:
 
 - Use **Fix Runtime Failures** from the Generator View, or
-- Run `ExTester Test Generator: Fix Runtime Failures` from the Command Palette.
+- Run `ExTester Code Generator: Fix Runtime Failures` from the Command Palette.
 
 The extension will:
 
@@ -251,4 +251,4 @@ When filing an issue, include:
 - VS Code version.
 - Operating system.
 - A short description of your ExTester setup (`package.json` scripts, `src/ui-test` layout).
-- Any relevant output from the **ExTester Test Generator** output channel and your test runner.
+- Any relevant output from the **ExTester Code Generator** output channel and your test runner.
