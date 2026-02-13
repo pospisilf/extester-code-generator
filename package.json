@@ -106,7 +106,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "glob": "^13.0.1",
+    "glob": "^13.0.3",
     "openai": "^6.17.0"
   }
 }
