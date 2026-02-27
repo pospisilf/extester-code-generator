@@ -41,7 +41,7 @@ jobs:
         run: vsce ls extester-code-generator-${{ steps.version.outputs.version }}.vsix
 
       - name: 💾 Upload VSIX
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: extester-code-generator-${{ steps.version.outputs.version }}.vsix
           path: extester-code-generator-${{ steps.version.outputs.version }}.vsix
